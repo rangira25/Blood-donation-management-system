@@ -1,14 +1,17 @@
 # Start from an OpenJDK base image
 FROM eclipse-temurin:17-jdk-alpine
 
-# Set the working directory
+# Set working directory
 WORKDIR /app
 
-# Copy Maven wrapper and project files
+# Copy all files into container
 COPY . .
+
+# 🔧 Give execute permission to mvnw
+RUN chmod +x mvnw
 
 # Build the project
 RUN ./mvnw clean package -DskipTests
 
-# Run the JAR file
+# Run the app
 CMD ["java", "-jar", "target/*.jar"]
