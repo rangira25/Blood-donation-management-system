@@ -14,4 +14,5 @@ RUN chmod +x mvnw
 RUN ./mvnw clean package -DskipTests
 
 # Run the app
-CMD ["java", "-jar", "target/*.jar"]
+CMD ["java", "-jar", "target/blooddonation-1.0.0.jar"]
+
